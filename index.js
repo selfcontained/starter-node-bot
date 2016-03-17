@@ -1,22 +1,28 @@
 var Botkit = require('botkit')
-
-// Expect a SLACK_TOKEN environment variable
-var slackToken = process.env.SLACK_TOKEN
-if (!slackToken) {
-  console.error('SLACK_TOKEN is required!')
-  process.exit(1)
-}
+var BeepBoop = require('beepboop-botkit')
 
 var controller = Botkit.slackbot()
-var bot = controller.spawn({
-  token: slackToken
-})
 
-bot.startRTM(function (err, bot, payload) {
-  if (err) {
-    throw new Error('Could not connect to Slack')
+// If we have a SLACK_TOKEN env var - assume we're operating in single team mode
+var slackToken = process.env.SLACK_TOKEN
+
+if (slackToken) {
+  controller
+    .spawn({
+      token: slackToken
+    }).startRTM(function (err, bot, payload) {
+      if (err) {
+        throw new Error('Could not connect to Slack')
+      }
+    })
+}else {
+  // Otherwise we're running in multi-team mode w/ connection to BeepBoop
+  // Events are triggered when teams are added/removed and slack rtm connections are spawned
+  BeepBoop.start(controller, {
+    debug: true
   }
-})
+}
+
 
 controller.on('bot_channel_join', function (bot, message) {
   bot.reply(message, "I'm here!")
