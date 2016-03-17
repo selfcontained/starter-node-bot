@@ -18,9 +18,31 @@ if (slackToken) {
 }else {
   // Otherwise we're running in multi-team mode w/ connection to BeepBoop
   // Events are triggered when teams are added/removed and slack rtm connections are spawned
-  BeepBoop.start(controller, {
+  var beepboop = BeepBoop.start(controller, {
     debug: true
-  }
+  })
+
+  beepboop
+    // You can react to multiple events, like when teams add/remove your bot
+    .on('open', function () {
+      console.log('Websocket connection to BeepBoop opened')
+    })
+    .on('close', function () {
+      console.log('Websocket connection to BeepBoop closed')
+    })
+    .on('add_resource', function (message) {
+      console.log('Team added: %s', message.resource.SlackTeamID)
+    })
+    .on('update_resource', function (message) {
+      console.log('Team updated: %s', message.resource.SlackTeamID)
+    })
+    // You would receive this event if a team updated their team-specific configuration
+    .on('remove_resource', function (message) {
+      console.log('Team removed: %s', message.resource.SlackTeamID)
+    })
+    .on('error', function (err) {
+      console.log(err)
+    })
 }
 
 
