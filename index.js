@@ -15,7 +15,7 @@ if (slackToken) {
         throw new Error('Could not connect to Slack')
       }
     })
-}else {
+} else {
   // Otherwise we're running in multi-team mode w/ connection to BeepBoop
   // Events are triggered when teams are added/removed and slack rtm connections are spawned
   var beepboop = BeepBoop.start(controller, {
@@ -38,13 +38,12 @@ if (slackToken) {
     })
     // You would receive this event if a team updated their team-specific configuration
     .on('remove_resource', function (message) {
-      console.log('Team removed: %s', message.resource.SlackTeamID)
+      console.log('Team removed: %s', message.resourceId)
     })
     .on('error', function (err) {
       console.log(err)
     })
 }
-
 
 controller.on('bot_channel_join', function (bot, message) {
   bot.reply(message, "I'm here!")
