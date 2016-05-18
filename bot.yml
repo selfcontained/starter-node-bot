@@ -6,6 +6,7 @@ slackscopes:
   - bot
   - commands
   - channels:history
+  - incoming-webhook
 config:
   - name: OPTION
     friendly_name: Some Unnecessary Option
