@@ -1,4 +1,5 @@
 name: nodebot
+author: Kellan
 description: A simple node.js starter bot for Beep Boop
 avatar: resources/avatar.png
 #background: resources/background.png
