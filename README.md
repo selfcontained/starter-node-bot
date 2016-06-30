@@ -1,3 +1,4 @@
+STAGING
 # starter-node-bot
 
 ## Overview
