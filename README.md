@@ -1,3 +1,4 @@
+MASTER
 # starter-node-bot
 
 ## Overview
