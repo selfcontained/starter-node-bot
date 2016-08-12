@@ -1,4 +1,3 @@
-boom!
 name: nodebot
 author: Kellan Harris
 author_avatar: resources/author_avatar.jpg
@@ -17,6 +16,7 @@ config:
     info: This is an unnecessary option
     default: the default value
     global: true
+!newfailure
 #  - name: SECRET
 #    friendly_name: Shhhh
 #    info: This is an secret option
