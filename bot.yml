@@ -38,6 +38,7 @@ config:
     team: false
     global: true
   - name: TEAM_FALSE_GLOBAL_FALSE
-    info: This should not be global
+    info: This should be global
     team: false
     global: false
+    default: default value
