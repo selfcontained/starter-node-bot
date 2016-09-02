@@ -11,19 +11,33 @@ slackscopes:
   - channels:history
   - incoming-webhook
 config:
-  - name: GLOBAL_OPTION
-    friendly_name: Some Unnecessary Option
-    info: This is an unnecessary option
-    default: the default value
+  - name: GLOBAL_TRUE
+    info: This should be global
     global: true
-  - name: TEAM_OPTION_NO_GLOBAL
-    info: This is a team-specific option w/o setting global
-    default: default team option value
-  - name: TEAM_OPTION_GLOBAL_FALSE
-    info: This is a team-specific option setting global to false
-    default: default team option value 2
-#  - name: SECRET
-#    friendly_name: Shhhh
-#    info: This is an secret option
-#    type: secret
-#    default: not secret though
+  - name: GLOBAL_FALSE
+    info: This should not be global
+    global: false
+  - name: NOTHING_SET
+    info: This should be global
+  - name: TEAM_TRUE
+    info: This should not be global
+    team: true
+  - name: TEAM_TRUE_GLOBAL_TRUE
+    info: This should not be global
+    team: true
+    global: true
+  - name: TEAM_TRUE_GLOBAL_FALSE
+    info: This should not be global
+    team: true
+    global: false
+  - name: TEAM_FALSE
+    info: This should be global
+    team: false
+  - name: TEAM_FALSE_GLOBAL_TRUE
+    info: This should be global
+    team: false
+    global: true
+  - name: TEAM_FALSE_GLOBAL_FALSE
+    info: This should not be global
+    team: false
+    global: false
