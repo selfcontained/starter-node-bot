@@ -16,6 +16,6 @@ config:
     global: true
   - name: GLOBAL_FALSE
     info: This should not be global
-    global: foobar
+    global: foobar123
   - name: NOTHING_SET
     info: This should be global (defaulted)
