@@ -19,26 +19,3 @@ config:
     global: false
   - name: NOTHING_SET
     info: This should be global
-  - name: TEAM_TRUE
-    info: This should not be global
-    team: true
-  - name: TEAM_TRUE_GLOBAL_TRUE
-    info: This should not be global
-    team: true
-    global: true
-  - name: TEAM_TRUE_GLOBAL_FALSE
-    info: This should not be global
-    team: true
-    global: false
-  - name: TEAM_FALSE
-    info: This should be global
-    team: false
-  - name: TEAM_FALSE_GLOBAL_TRUE
-    info: This should be global
-    team: false
-    global: true
-  - name: TEAM_FALSE_GLOBAL_FALSE
-    info: This should be global
-    team: false
-    global: false
-    default: default value
