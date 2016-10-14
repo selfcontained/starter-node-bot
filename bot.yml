@@ -19,3 +19,4 @@ config:
     global: false
   - name: NOTHING_SET
     info: This should be global (defaulted)
+
